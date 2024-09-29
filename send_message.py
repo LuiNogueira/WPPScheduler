@@ -13,7 +13,7 @@ class Job:
         self.num = num
         self.repeat = repeat
         self. index = index
-        self.appdata = os.environ['APPDATA'] + r'\sendMsgWPP'
+        self.appdata = os.environ['APPDATA'] + r'\WPPScheduler'
 
         self.send_message()
         self.send_enter()

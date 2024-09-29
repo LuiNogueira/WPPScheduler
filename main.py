@@ -36,22 +36,22 @@ class Interface:
             key = r'Software\Microsoft\Windows\CurrentVersion\Run'
             user = reg.ConnectRegistry(None, reg.HKEY_CURRENT_USER)
             key = reg.OpenKey(user, key)
-            query = reg.QueryValueEx(key, 'sendMsgWPP')
+            query = reg.QueryValueEx(key, 'WPPScheduler')
             print('Registro Existe')
         except:
             # Cria data.json em APPDATA
-            os.mkdir(self.appdata + r'\sendMsgWPP')
-            with open(self.appdata + r'\sendMsgWPP\data.json', 'w') as file:
+            os.mkdir(self.appdata + r'\WPPScheduler')
+            with open(self.appdata + r'\WPPScheduler\data.json', 'w') as file:
                 file.write('[]')
             print('Diretório e data.json criados')
 
             # Copia e abre schedule_process.exe
-            copy(self.program_path + r'\schedule_process.exe', self.appdata + r'\sendMsgWPP')
-            os.startfile(self.appdata + r'\sendMsgWPP\schedule_process.exe')
+            copy(self.program_path + r'\schedule_process.exe', self.appdata + r'\WPPScheduler')
+            os.startfile(self.appdata + r'\WPPScheduler\schedule_process.exe')
 
             # Cria no registro uma chave para o schedule_process.exe caso não haja
             key = reg.OpenKey(reg.HKEY_CURRENT_USER, r'Software\Microsoft\Windows\CurrentVersion\Run', 0, reg.KEY_ALL_ACCESS)
-            reg.SetValueEx(key, 'sendMsgWPP', 0, reg.REG_SZ, f'{self.appdata}\\sendMsgWPP\\schedule_process.exe')
+            reg.SetValueEx(key, 'WPPScheduler', 0, reg.REG_SZ, f'{self.appdata}\\WPPScheduler\\schedule_process.exe')
             print('Registro criado')
 
         self.app.mainloop()
@@ -139,7 +139,7 @@ class Interface:
         button_agenda.grid(column=1, row=0, padx=20, pady=20)
 
     def open_json(self):
-        with open(self.appdata + r'\sendMsgWPP\data.json', 'r') as file:
+        with open(self.appdata + r'\WPPScheduler\data.json', 'r') as file:
             data = json.load(file)
         return data
 
@@ -208,7 +208,7 @@ class Interface:
 
                 data.append(adicionar)
 
-                with open(self.appdata + r'\sendMsgWPP\data.json', 'w') as file:
+                with open(self.appdata + r'\WPPScheduler\data.json', 'w') as file:
                     json.dump(data, file, indent=4)
 
                 # Mensagem de sucesso

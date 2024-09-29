@@ -53,14 +53,14 @@ class Uninstall:
 
 def verify_registry():
     try:
-        reg.QueryValueEx(key, 'sendMsgWPP')
+        reg.QueryValueEx(key, 'WPPScheduler')
         return 1
     except:
         return 0
 
 def verify_appdata():
     try:
-        os.listdir(appdata + r'/sendMsgWPP')
+        os.listdir(appdata + r'/WPPScheduler')
         return 1
     except:
         return 0
@@ -73,7 +73,7 @@ def kill_sp(): # kill schedule-process
 
 def del_appdata_folder():
     try:
-        path = appdata + r'/sendMsgWPP'
+        path = appdata + r'/WPPScheduler'
         shutil.rmtree(path)
         print('Diretório removido')
     except:
@@ -81,7 +81,7 @@ def del_appdata_folder():
 
 def remove_registry():
     try:
-        reg.DeleteValue(key, 'sendMsgWPP')
+        reg.DeleteValue(key, 'WPPScheduler')
         print('Registro removido')
     except:
         print('Erro ao remover o registro')

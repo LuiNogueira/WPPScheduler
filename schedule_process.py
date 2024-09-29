@@ -12,7 +12,7 @@ from datetime import datetime, timedelta
 # Possível problema: E se tivermos duas instancias com o mesmo horário e dia?
 
 # Universal Variables
-appdata = os.environ['APPDATA'] + r'\sendMsgWPP'
+appdata = os.environ['APPDATA'] + r'\WPPScheduler'
 
 logging.basicConfig(filename=appdata+r'\schedule_process_log.log', level=logging.INFO, format='%(asctime)s - %(message)s')
 

@@ -7,7 +7,7 @@ import psutil
 class Agenda:
     def __init__(self):
         self.delete = []
-        self.appdata = os.environ['APPDATA'] + r'\sendMsgWPP'
+        self.appdata = os.environ['APPDATA'] + r'\WPPScheduler'
 
         # Definindo a aparência
         set_appearance_mode('dark')
