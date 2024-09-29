@@ -2,7 +2,6 @@ import json
 from customtkinter import *
 from urllib.parse import unquote
 import time
-import psutil
 
 class Agenda:
     def __init__(self):

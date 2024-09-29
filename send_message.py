@@ -1,10 +1,9 @@
 import webbrowser as web
 import time
-import win32gui
+import win32gui #pywin32
 from pynput.keyboard import Key, Controller
 import json
 import os
-import psutil
 
 
 class Job:
