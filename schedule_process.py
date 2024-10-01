@@ -69,6 +69,9 @@ observer = Observer()
 observer.schedule(handler, path=appdata, recursive=False)
 observer.start()
 
+# Atualiza o JSON no logon
+reload_tasks()
+
 # Inicializando o loop
 try:
     while True:
